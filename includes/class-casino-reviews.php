@@ -60,16 +60,12 @@ class CasinoReviews {
 
         // WP_Http returns an error object for some failures
         if ($results instanceof WP_Error) {
-            return [
-                "Request Failed: {$results->errors['http_request_failed'][0]}"
-            ];
+            return "Request Failed: {$results->errors['http_request_failed'][0]}";
         }
 
         // Check for success on the http request
         if ($results["response"]["code"] != 200) {
-            return [
-                "Request Failed: {$results["response"]['code']}-{$results["response"]['message']}"
-            ];
+            return "Request Failed: {$results["response"]['code']}-{$results["response"]['message']}";
         }
 
         $body = json_decode($results['body'], true);
