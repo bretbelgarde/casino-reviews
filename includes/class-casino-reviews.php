@@ -13,6 +13,8 @@ class CasinoReviews {
     private function __construct() {
         $this->http = new WP_Http;
 
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+
         add_shortcode('crdisplay', [$this, 'cr_display']);
         add_action('cr_tmpl', [$this, 'cr_tmpl']);
     }
@@ -49,6 +51,18 @@ class CasinoReviews {
         include CR_PLUGIN_DIR . 'includes/cr-tmpl.php';
     }
 
+    /**
+     * Enqueue CSS and JS files
+     * 
+     * @return void
+     */
+    public function enqueue_scripts() {
+        wp_register_style('crstyles', plugins_url('/css/cr-style.css', CR_PLUGIN_FILE));
+
+        wp_enqueue_style('cr-fa','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css');
+        wp_enqueue_style('crstyles');
+        
+    }
     /**
      * takes toplist key and returns data for that key
      * returns a string in the case of an error
