@@ -22,15 +22,15 @@
             <div>
                 <div>
                     <?php for ($i = 0; $i < 5; $i++) : ?>
-                        <?= ($i < $review['info']['rating']) ? '&starf;' : '&star;'; ?>
+                        <?= ($i < $review['info']['rating']) ? '<i class="fa fa-star"></i>' : '<i class="fa fa-star-o"></i>'; ?>
                     <?php endfor; ?>
                 </div>
                 <p><?= $review['info']['bonus'] ?></p>
             </div>
             <div>
-                <ul>
+                <ul class="fa-ul">
                     <?php foreach ($review['info']['features'] as $feature) : ?>
-                        <li><?= $feature ?></li>
+                        <li> <i class="fa-li fa fa-check-circle"></i><?= $feature ?></li>
                     <?php endforeach; ?>
                 </ul>
             </div>
