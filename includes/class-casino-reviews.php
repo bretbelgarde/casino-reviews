@@ -14,6 +14,7 @@ class CasinoReviews {
         $this->http = new WP_Http;
 
         add_shortcode('crdisplay', [$this, 'cr_display']);
+        add_action('cr_tmpl', [$this, 'cr_tmpl']);
     }
 
     /**
@@ -30,13 +31,22 @@ class CasinoReviews {
     /**
      * cr_display shortcode
      * 
-     * @return string
+     * @return void
      */
     public function cr_display($atts = []) {
         $key = sanitize_key($atts['key']);
-        
-        var_dump($this->get_reviews($key));
-        return "KEY = {$key}";
+        $reviews = $this->get_reviews($key);
+
+        do_action('cr_tmpl', $reviews);
+    }
+
+    /** 
+     * Shortcode template loading function  
+     * 
+     * @return void
+     * */
+    public function cr_tmpl($reviews) {
+        include CR_PLUGIN_DIR . 'includes/cr-tmpl.php';
     }
 
     /**
