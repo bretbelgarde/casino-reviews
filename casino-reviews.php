@@ -20,7 +20,8 @@ define('CR_PLUGIN_FILE', __FILE__);
 define('CR_PLUGIN_DIR',  plugin_dir_path(CR_PLUGIN_FILE));
 
 // Casino Review Data Endpoint
-define('CASINOREVIEW_ENDPOINT_URL', 'http://mock.test/get');
+define('CR_ENDPOINT_URL', 'http://mock.test/get');
+define('CR_ENDPOINT_KEY', 'toplists');
 
 // Class Loader
 if (!class_exists('CasinoReviews')) {
