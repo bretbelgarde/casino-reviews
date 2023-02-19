@@ -62,9 +62,9 @@ class CasinoReviews {
      */
     public function enqueue_scripts() {
         wp_register_style('crstyles', plugins_url('/css/cr-style.css', CR_PLUGIN_FILE));
-
-        wp_enqueue_style('cr-fa','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css');
         wp_enqueue_style('crstyles');
+
+        wp_enqueue_script('crfa', '//kit.fontawesome.com/41d1b2c95d.js');
         
     }
     /**
