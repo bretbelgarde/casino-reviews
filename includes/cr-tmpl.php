@@ -16,7 +16,7 @@
     <?php foreach ($reviews as $review) :   ?>
         <div class="crrow">
             <div class="crcell">
-                <img src="<?= $review['logo'] ?>" alt="Casino Logo">
+                <img src="<?= $review['logo'] ?>" alt="Casino Logo" class="crimg">
                 <p class="crtac"><a href="<?= site_url('/' . $review['brand_id']) ?>">Review</a></p>
             </div>
             <div class="crcell">
@@ -28,7 +28,7 @@
                 <p class="crtac"><?= $review['info']['bonus'] ?></p>
             </div>
             <div class="crcell">
-                <ul class="fa-ul">
+                <ul class="fa-ul crul">
                     <?php foreach ($review['info']['features'] as $feature) : ?>
                         <li> <i class="fa-li fa fa-check-circle"></i><?= $feature ?></li>
                     <?php endforeach; ?>

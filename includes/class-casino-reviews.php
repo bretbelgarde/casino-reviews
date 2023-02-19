@@ -16,7 +16,6 @@ class CasinoReviews {
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
 
         add_shortcode('crdisplay', [$this, 'cr_display']);
-        add_action('cr_tmpl', [$this, 'cr_tmpl']);
     }
 
     /**
@@ -39,7 +38,7 @@ class CasinoReviews {
         $key = sanitize_key($atts['key']);
         $reviews = $this->get_reviews($key);
 
-        do_action('cr_tmpl', $reviews);
+        return $this->cr_tmpl($reviews);
     }
 
     /** 
@@ -48,7 +47,12 @@ class CasinoReviews {
      * @return void
      * */
     public function cr_tmpl($reviews) {
+        ob_start();
         include CR_PLUGIN_DIR . 'includes/cr-tmpl.php';
+        $template = ob_get_contents();
+        ob_end_clean();
+
+        return $template;
     }
 
     /**
