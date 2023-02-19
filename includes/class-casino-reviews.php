@@ -90,8 +90,8 @@ class CasinoReviews {
         $reviews = $body[CR_ENDPOINT_KEY][$key];
 
         // Sort reviews by position
-        usort($reviews, function($prev, $curr){
-            return $prev <=> $curr;
+        usort($reviews, function($prev, $curr) {
+            return $prev['position'] <=> $curr['position'];
         });
 
          return $reviews;
