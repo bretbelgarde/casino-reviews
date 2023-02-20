@@ -35,8 +35,15 @@ class CasinoReviews {
      * @return void
      */
     public function cr_display($atts = []) {
+        if (!key_exists('key', $atts) || !is_numeric($atts['key'])) {
+            return "Invalid or missing review key";
+        }
+
         $key = sanitize_key($atts['key']);
+        
         $reviews = $this->get_reviews($key);
+
+        if (is_string($reviews)) return $reviews;
 
         return $this->cr_tmpl($reviews);
     }
@@ -89,6 +96,10 @@ class CasinoReviews {
         $body = json_decode($results['body'], true);
         $reviews = $body[CR_ENDPOINT_KEY][$key];
 
+        if (is_null($reviews) || empty($reviews)) {
+            return "Bad or empty key, please check key";
+        }
+        
         // Sort reviews by position
         usort($reviews, function($prev, $curr) {
             return $prev['position'] <=> $curr['position'];
