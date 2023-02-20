@@ -16,7 +16,9 @@
     <?php foreach ($reviews as $review) :   ?>
         <div class="crrow">
             <div class="crcell">
-                <img src="<?= $review['logo'] ?>" alt="Casino Logo" class="crimg">
+                <a href="<?= site_url('/' . $review['brand_id']) ?>">
+                    <img src="<?= $review['logo'] ?>" alt="Casino Logo" class="crimg">
+                </a>
                 <p><a href="<?= site_url('/' . $review['brand_id']) ?>">Review</a></p>
             </div>
             <div class="crcell">
