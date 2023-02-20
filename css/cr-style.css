@@ -31,10 +31,6 @@
     border-bottom: none;
 }
 
-.crtac {
-    text-align: center;
-}
-
 .crcell {
     padding: 1em;
     text-align: center;
@@ -68,7 +64,8 @@
     margin:0 auto;
     background-color: #0e6d2b;
     padding: .75em;
-    color: white;
+    /* Override WPs link color */
+    color: white !important;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 18px;
