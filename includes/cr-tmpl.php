@@ -16,12 +16,18 @@
     <?php foreach ($reviews as $review) :   ?>
         <div class="crrow">
             <div class="crcell">
+                <div class="crmhead">
+                    <p>Casino</p>
+                </div>
                 <a href="<?= site_url('/' . $review['brand_id']) ?>">
                     <img src="<?= $review['logo'] ?>" alt="Casino Logo" class="crimg">
                 </a>
                 <p><a href="<?= site_url('/' . $review['brand_id']) ?>">Review</a></p>
             </div>
             <div class="crcell">
+                <div class="crmhead">
+                    <p>Bonus</p>
+                </div>
                 <div class="crstars">
                     <?php for ($i = 0; $i < 5; $i++) : ?>
                         <?= ($i < $review['info']['rating']) ? '<i class="fa fa-star"></i>' : '<i class="fa fa-star-o"></i>'; ?>
@@ -30,6 +36,9 @@
                 <p><?= $review['info']['bonus'] ?></p>
             </div>
             <div class="crcell">
+                <div class="crmhead">
+                    <p>Features</p>
+                </div>
                 <ul class="fa-ul crul">
                     <?php foreach ($review['info']['features'] as $feature) : ?>
                         <li> <i class="fa-li fa fa-check-circle"></i><?= $feature ?></li>
@@ -37,6 +46,9 @@
                 </ul>
             </div>
             <div class="crcell">
+                <div class="crmhead">
+                    <p>Play</p>
+                </div>
                 <p>
                     <a href="<?= $review['play_url'] ?>" class="crbtn">Play Now</a>
                 </p>
