@@ -1,9 +1,12 @@
+
+.casino-review-container {
+    margin: 0 auto;
+}
 .casino-review-container div p,
 .casino-review-container div li {
     margin: 0;
     padding: 0;
-    font-size: 14px;
-    max-width: 960px;
+    font-size: 16px;
     color: black;
 }
 
@@ -12,15 +15,16 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     border-bottom: 1px solid #ddd;
 }
 
 .crrow.crhead {
     background-color: #d29f36;
-    padding: .51em 0;
+    padding: .5em 0;
     font-weight: bold;
     border-bottom: none;
+    text-align: center;
 }
 
 .crrow:last-of-type {
@@ -33,6 +37,7 @@
 
 .crcell {
     padding: 1em;
+    text-align: center;
 }
 
 /* no horizontal padding on image container */
@@ -48,7 +53,8 @@
 }
 
 .crul {
-    margin-bottom: 0;
+    margin: 0 inherit;
+    text-align: left;
 }
 
 .crimg {
@@ -71,20 +77,18 @@
     margin-bottom: .5em;
 }
 
-@media screen and (max-width:992px) {
+@media screen and (max-width:1040px) {
     .crrow.crhead {
         display: none;
     }
 
-    .casino-review-container div p,
-    .casino-review-container div li {
-        margin: 0;
-        padding: 0;
-        font-size: 22px;
+    .crul {
+        display: inline-block;
     }
 }
 
-@media screen and (max-width: 991px) and (min-width: 752px) {
+/* Force 2x2 layout on screen sizes to eliminate the 4th column wrapping  */
+@media screen and (max-width: 1040px) and (min-width: 799px) {
     .crrow {
         grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     }

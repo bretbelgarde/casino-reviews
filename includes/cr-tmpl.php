@@ -1,15 +1,15 @@
 <div class="casino-review-container">
     <div class="crrow crhead">
-        <div class="crtac">
+        <div>
             <p>Casino</p>
         </div>
-        <div class="crtac">
+        <div>
             <p>Bonus</p>
         </div>
-        <div class="crtac">
+        <div>
             <p>Features</p>
         </div>
-        <div class="crtac">
+        <div>
             <p>Play</p>
         </div>
     </div>
@@ -17,7 +17,7 @@
         <div class="crrow">
             <div class="crcell">
                 <img src="<?= $review['logo'] ?>" alt="Casino Logo" class="crimg">
-                <p class="crtac"><a href="<?= site_url('/' . $review['brand_id']) ?>">Review</a></p>
+                <p><a href="<?= site_url('/' . $review['brand_id']) ?>">Review</a></p>
             </div>
             <div class="crcell">
                 <div class="crstars">
@@ -25,7 +25,7 @@
                         <?= ($i < $review['info']['rating']) ? '<i class="fa fa-star"></i>' : '<i class="fa fa-star-o"></i>'; ?>
                     <?php endfor; ?>
                 </div>
-                <p class="crtac"><?= $review['info']['bonus'] ?></p>
+                <p><?= $review['info']['bonus'] ?></p>
             </div>
             <div class="crcell">
                 <ul class="fa-ul crul">
@@ -35,10 +35,10 @@
                 </ul>
             </div>
             <div class="crcell">
-                <p class="crtac">
+                <p>
                     <a href="<?= $review['play_url'] ?>" class="crbtn">Play Now</a>
                 </p>
-                <p class="crtac"><small><?= $review['terms_and_conditions'] ?></small></p>
+                <p><small><?= $review['terms_and_conditions'] ?></small></p>
             </div>
         </div>
     <?php endforeach; ?>
